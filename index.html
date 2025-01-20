@@ -1,0 +1,104 @@
+<h1 class="title">To-Do List</h1>
+<input id = "text">
+    <button id ="btn" onclick = "add()">Add</button>
+<ul id = "list">
+   
+</ul>
+<script>
+    var listitem = document.getElementById("list")
+    var input = document.getElementById("text")
+   
+    function add()
+    {
+        var element = document.createElement("li")
+        element.innerHTML=input.value + "<button class = 'delbtn' onclick= 'del(event)'>Delete</button>"
+        listitem.append(element);
+        
+    }
+    function del(event)
+    {
+        event.target.parentElement.remove()
+    }
+
+</script>
+<style>
+  
+    #btn {
+        border-radius: 30px;
+        background-color: rgb(67, 170, 247);
+        margin-left: 20px;
+        width: 100px;
+        height: 40px;
+        color: white;
+        border: none;
+        cursor: pointer;
+    }
+    #btn:hover {
+        background-color: rgb(47, 150, 227);
+    }
+.delbtn {
+    border-radius: 30px;
+    background-color: rgb(255, 99, 71);
+    margin-left: 10px;
+    width: 80px;
+    height: 30px;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+.delbtn:hover {
+    background-color: rgb(235, 79, 51);
+}
+
+#list li {
+    transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+}
+
+#list li.added {
+    transform: translateY(-10px);
+    opacity: 1;
+}
+
+#list li.removed {
+    transform: translateY(10px);
+    opacity: 0;
+}
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f9;
+    margin: 0;
+    padding: 20px;
+}
+
+input {
+    border-radius: 30px;
+    padding: 10px;
+    width: 200px;
+    border: 1px solid #ccc;
+    margin-right: 10px;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+ul li {
+    background-color: #fff;
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+ul li button {
+    margin-left: 10px;
+}
+body {
+    background: linear-gradient(135deg, #f6d365 0%, #fda085 100%);
+}
+
+</style>
